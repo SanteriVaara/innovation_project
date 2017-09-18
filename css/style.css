@@ -47,7 +47,7 @@ nav a {
 	text-decoration:none;
 }
 
-nav a:hover {
+nav a:hover, nav .current a {
 	text-decoration: underline;
 }
 
@@ -78,4 +78,41 @@ footer a {
 
 footer a:hover {
 	text-decoration: underline;
+}
+
+blockquote {
+	border-left: 2px solid #999999;
+	margin-left: 30px;
+	padding-left: 10px;
+}
+
+section ol li {
+	list-style-type: lower-alpha;
+}
+
+section ul li {
+	list-style-type: square;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+	background-color: #222222;
+	color: #ffffff;
+}
+
+th, td {
+	border: 1px solid #444444;
+	padding: 5px;
+}
+
+tr:nth-child(even) {
+	background-color: #fdfdfd;
+}
+
+tr:nth-child(odd) {
+	background-color: #f1f1f1;
 }
