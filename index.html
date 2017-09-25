@@ -23,24 +23,29 @@
 		<div class="content">
 			<h1>Bachelor's Thesis uploading station</h1>
 			<section style="display: none;" id="toggle">
-				<form action="upload_file.php" method="post" enctype="multipart/form-data">
+				<form action="upload_file.php" method="post" name="form" enctype="multipart/form-data">
 				<span>First name: </span><input type="text" name="FirstName" value=""><br>
 				<span>Last name: </span><input type="text" name="LastName" value=""><br>
 				<span>Thesis name: </span><input type="text" name="Thesisname" value=""><br>
 				<input type="file" value="Upload" />
 				<input type="reset" value="Reset the form">
 				<br />
-				<input type="submit" name="submit" value="Submit" />
+				<input type="submit" name="query" value="Submit" />
+				<a href="javascript: submitform()"> </a>
 				</form>
 			</section>
-			
 			<a id="btn" onclick="showsec('toggle')" style = "display: inline;" type="button" href="#">Get Started </a>
 			<script type="text/javascript">
 					function showsec(toggle) {
-						document.getElementById(toggle).style.display ='block';
-						document.getElementById("btn").style.display = 'none';	
+							document.getElementById(toggle).style.display ='block';
+							document.getElementById("btn").style.display = 'none';
 					}
-				
+					function submitform() {
+						if(document.myform.onsubmit && !document.myform.onsubmit()) {
+        					return;
+    				}
+ 					document.myform.submit();
+					}
 			</script>
 		</div>
 	</div>

@@ -131,3 +131,40 @@ html, body {
 	font-size: 100%;
 }
 
+
+#search [type=text] {
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+#search [type=text]:focus {
+	border: 3px solid #555;
+}
+
+#search input[type=text] {
+    width: 130px;
+    padding: 17px;
+    padding-left: 55px;
+    margin: 15px;
+    height: 25px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url(../images/searchicon.png);
+    background-position: left-center; outline: 0; 
+    background-size: 25px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+#search input[type=text]:focus {
+    width: 100%;
+}
