@@ -2,12 +2,16 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>POKALE</title>	
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="css/style.css"/>
+	<title>POKALE</title>
+	<meta charset="utf-8"/>
+	{% load staticfiles %}
+	<link rel="icon" href="{% static 'personal/images/favicon.ico' %}" type="image/x-icon" />
+	<link rel="stylesheet" href="{% static 'personal/css/style.css' %}" type = "text/css"/>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
 </head>
 <body>
 <section class="intro">
@@ -15,8 +19,8 @@
 		<div class="nav">
 			<nav>
 				<ul>
-					<li class="current"><a href="index.html">Home</a></li>
-					<li><a href="htmlElements.html">Search</a></li>
+					<li class="current"><a href="/">Home</a></li>
+					<li><a href="/search">Search</a></li>
 					<li><a href="http://oma.metropolia.fi">OMA</a></li>
 				</ul>
 		</nav>
