@@ -26,6 +26,9 @@
 			<h1>Seach files</h1>
 			<form id = "search">
   				<input type="text" name="search" placeholder="Search..">
+  				{% for post in object_list %}
+					<h5>{{ post.date|date:"Y-m-d" }}<a href="/search/{{post.id}}">  {{ post.title }}</a></h5>
+				{% endfor %}
 			</form>
 		</div>
 	</div>
