@@ -27,15 +27,18 @@
 		<div class="content">
 			<h1>Upload files</h1>
 			<section style="display: none;" id="form">
-				<form action="upload_file.php" method="post" name="form" enctype="multipart/form-data">
+				<form method="post" name="form" enctype="multipart/form-data">
 				<span>First name: </span><input type="text" name="FirstName" value=""><br>
 				<span>Last name: </span><input type="text" name="LastName" value=""><br>
 				<span>Thesis name: </span><input type="text" name="Thesisname" value=""><br>
-				<input type="file" value="Upload" />
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input type="file" name="myfile" value="Upload" />
 				<input type="reset" value="Reset the form">
 				<br />
-				<input type="submit" name="query" value="Submit" />
+				<button type="submit">Submit</button>
 				</form>
+    				<p><a href="/">Return to home</a></p>
 			</section>
 			<a id="btn" onclick="showsec('showpage')" style = "display: inline;" type="button" href="#">Get Started </a>
 			<script type="text/javascript">
