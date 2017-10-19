@@ -1,7 +1,13 @@
 from django import forms
-from uploads.core.models import Document
+from .models import Post
 
-class DocumentForm(forms.ModelForm):
-    class Meta:
-        model = Document
-        fields = ('title', 'firstname','lastname','file','date' )
+
+class PostForm(forms.ModelForm):
+	class Meta:
+		model = Post
+		fields = [
+			"title",
+			"content",
+			"firstname",
+			"lastname",
+		]

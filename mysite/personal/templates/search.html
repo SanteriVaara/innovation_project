@@ -1,19 +1,52 @@
 <!-- Code for the first site -->
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<title>POKALE</title>
+	<title>POKALE</title>	
 	<meta charset="utf-8"/>
 	{% load staticfiles %}
 	<link rel="icon" href="{% static 'personal/images/favicon.ico' %}" type="image/x-icon" />
 	<link rel="stylesheet" href="{% static 'personal/css/style.css' %}" type = "text/css"/>
 	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
-
 </head>
 <body>
+<section class="intro">
+	<div class="inner">
+		<div class="nav">
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li class="current"><a href="/search">Search</a></li>
+					<li><a href="http://oma.metropolia.fi">OMA</a></li>
+				</ul>
+		</nav>
+		<div class="content">
+			<h1>Search files</h1>
+			<form id = "search">
+  				<input type="text" name="search" placeholder="Search..">
+  				{% for obj in object_list %}
+
+				<a href='{% url "detail" id=obj.id %}'>{{ obj.title }}</a><br/>
+				{{ obj.content }}<br/>
+				{{ obj.date }}<br/>
+				{{ obj.updated }}<br/>
+				{{ obj.id }}<br/>
+
+				{% endfor %}
+			</form>
+		</div>
+	</div>
+	</div>
+</section>
+	
+
+</body>
+</html>
+
+
+
 <section class="intro">
 	<div class="inner">
 		<div class="nav">
@@ -25,7 +58,7 @@
 				</ul>
 		</nav>
 		<div class="content">
-			<h1>Upload files</h1>
+			<h1>{{ title }} files</h1>
 			<section style="display: none;" id="form">
 				<form method="post" name="form" enctype="multipart/form-data">
 				<span>First name: </span><input type="text" name="FirstName" value=""><br>
@@ -51,7 +84,3 @@
 	</div>
 	</div>
 </section>
-	
-
-</body>
-</html>

@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from . import views
+from personal import views as personal_views
 
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+	url(r'^$', personal_views.post_list, name='list'),
+	url(r'^create/$', personal_views.post_create, name='create'),
+	url(r'^(?P<id>\d+)/$', personal_views.post_detail, name='detail'),
+	url(r'^(?P<id>\d+)/edit/$', personal_views.post_update, name="update"),
+	url(r'^(?P<id>\d+)/delete/$', personal_views.post_delete, name="delete"),
 ]
