@@ -10,4 +10,5 @@ class PostForm(forms.ModelForm):
 			"content",
 			"firstname",
 			"lastname",
+			"file",
 		]

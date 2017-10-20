@@ -10,6 +10,12 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="thumbnail">
+			{% if obj.file %}
+			<video width='320' height= '240'>
+			<source src="{{ obj.file.url }}" type='video/mp4'></source>
+			Your browser does not support the video tag.
+			</video>
+			{% endif %}
 			<div class = "caption">
 				<h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> <small>{{ obj.date|timesince }} ago</small></h3>
 				<p>{{ obj.firstname }} {{ obj.lastname }}</p>
