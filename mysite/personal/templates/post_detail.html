@@ -18,7 +18,7 @@
 {{ instance.lastname }}<br/>
 {{ instance.content|linebreaks }}<br/>
 
-
+<p><a href="{{ obj.get_absolute_url }}delete" class="btn btn-primary" role="button" onclick="return confirm('Are you sure want to delete?');">Delete</a> <a href="{{ obj.get_absolute_url }}edit" class="btn btn-primary" role="button">Edit</a></p>
 <p><a href="/">Return to home page</a></p>
 </div>
 
