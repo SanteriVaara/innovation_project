@@ -7,6 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from .forms import PostForm
 from .models import Post
+from django.contrib import messages
 
 def post_list(request):
     queryset_list = Post.objects.all().order_by("-date")
@@ -63,6 +64,13 @@ def post_detail(request, id=None):
 def post_update(request, id=None):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
+    #if obj.user != request.user:
+        #messages.success(request, "You do not have permission to do this.")
+        #raise Http404
+	    #response = HttpResponse("You do not have permission to do this.")
+	    #response.status_code = 403
+	    #return response
+
     instance = get_object_or_404(Post, id=id)
     form = PostForm(request.POST or None,  request.FILES or None, instance=instance)
     if form.is_valid():
@@ -81,6 +89,13 @@ def post_update(request, id=None):
 def post_delete(request, id=None):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
+    #if obj.user != request.user:
+        #messages.success(request, "You do not have permission to do this.")
+        #raise Http404
+        #response = HttpResponse("You do not have permission to do this.")
+        #response.status_code = 403
+        #return response
+
     instance = get_object_or_404(Post, id=id)
     instance.delete()
     return redirect("personal:list")
