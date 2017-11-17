@@ -25,7 +25,7 @@ SECRET_KEY = 'a6(e0$b++$l&4n#&wqkp-b!j%xc-n+=h&q93dj8dr#=zw$53oa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['innoproject.herokuapp.com/']
+ALLOWED_HOSTS = [".herokuapp.com","innoproject.herokuapp.com"]
 
 
 # Application definition
