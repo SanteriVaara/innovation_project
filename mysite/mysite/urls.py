@@ -17,11 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+import cas.views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^', include('personal.urls', namespace='personal')),
-    url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/login/$', cas.views.login, name='login'),
+    url(r'^accounts/logout/$', cas.views.logout, name='logout'),   
 ]
 
 if settings.DEBUG:

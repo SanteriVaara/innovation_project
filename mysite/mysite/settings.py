@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a6(e0$b++$l&4n#&wqkp-b!j%xc-n+=h&q93dj8dr#=zw$53oa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com","innoproject.herokuapp.com","127.0.0.1"]
+ALLOWED_HOSTS = [".herokuapp.com","innoproject.herokuapp.com","127.0.0.1","*"]
 
 ADMINS = (('Santeri Vaara', 'santtu.vaara@gmail.com'),)
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cas',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'cas.middleware.CASMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -139,9 +142,8 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 AUTHENTICATION_BACKENDS = (
-
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    'cas.backends.CASBackend',
 
 )
 
@@ -175,3 +177,5 @@ LOGGING = {
         },
     }
 }
+
+CAS_SERVER_URL = "https://oma.metropolia.fi"
