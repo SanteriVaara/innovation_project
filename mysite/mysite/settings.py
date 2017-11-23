@@ -178,4 +178,4 @@ LOGGING = {
     }
 }
 
-CAS_SERVER_URL = "https://oma.metropolia.fi"
+CAS_SERVER_URL = "https://idp.metropolia.fi/idp/profile/cas"
