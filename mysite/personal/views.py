@@ -8,7 +8,10 @@ from django.conf import settings
 from .forms import PostForm
 from .models import Post
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def post_list(request):
     queryset_list = Post.objects.all().order_by("-date")
 
