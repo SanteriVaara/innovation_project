@@ -179,5 +179,5 @@ LOGGING = {
 }
 
 CAS_SERVER_URL = "https://idp.metropolia.fi/idp/profile/cas"
-CAS_LOGOUT_COMPLETELY = True
-CAS_PROVIDE_URL_TO_LOGOUT = True
+CAS_RETRY_LOGIN = True
+CAS_REDIRECT_URL = '/'
