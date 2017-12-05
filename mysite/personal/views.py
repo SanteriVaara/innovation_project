@@ -40,9 +40,10 @@ def post_list(request):
     }
     return render(request, 'post_list.html', context)
 
+@login_required
 def post_create(request):
-    if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
+    #if not request.user.is_staff or not request.user.is_superuser:
+    #    raise Http404
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -53,6 +54,7 @@ def post_create(request):
     }
     return render(request, 'post_form.html', context)
 
+@login_required
 def post_detail(request, id=None):
     instance = get_object_or_404(Post, id=id)
     context = {
@@ -62,9 +64,10 @@ def post_detail(request, id=None):
 
     return render(request, 'post_detail.html', context)
 
+@login_required
 def post_update(request, id=None):
-    if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
+    #if not request.user.is_staff or not request.user.is_superuser:
+    #    raise Http404
     #if obj.user != request.user:
         #messages.success(request, "You do not have permission to do this.")
         #raise Http404
@@ -87,9 +90,10 @@ def post_update(request, id=None):
 
     return render(request, 'post_form.html', context)
 
+@login_required
 def post_delete(request, id=None):
-    if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
+    #if not request.user.is_staff or not request.user.is_superuser:
+    #    raise Http404
     #if obj.user != request.user:
         #messages.success(request, "You do not have permission to do this.")
         #raise Http404
