@@ -8,8 +8,8 @@ html, body {
 	width: 100%;
 }
 
-nav {
-	text-align:center;
+nav p {
+	text-align:right;
 }
 nav ul {
     list-style-type:none;
