@@ -26,9 +26,9 @@ SECRET_KEY = 'a6(e0$b++$l&4n#&wqkp-b!j%xc-n+=h&q93dj8dr#=zw$53oa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".herokuapp.com","innoproject.herokuapp.com","127.0.0.1","*","localhost"]
+ALLOWED_HOSTS = [".herokuapp.com","innoproject1.herokuapp.com","127.0.0.1","*","localhost"]
 
-ADMINS = (('Santeri Vaara', 'santtu.vaara@gmail.com'),)
+ADMINS = (('Santeri Vaara', 'santerva@metropolia.fi'),)
 # Application definition
 
 INSTALLED_APPS = [
@@ -179,5 +179,3 @@ LOGGING = {
 }
 
 CAS_SERVER_URL = "https://idp.metropolia.fi/idp/profile/cas/"
-CAS_RETRY_LOGIN = True
-CAS_REDIRECT_URL = '/'
