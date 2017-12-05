@@ -178,6 +178,6 @@ LOGGING = {
     }
 }
 
-CAS_SERVER_URL = "https://idp.metropolia.fi/idp/profile/cas"
+CAS_SERVER_URL = "https://idp.metropolia.fi/idp/profile/cas/"
 CAS_RETRY_LOGIN = True
 CAS_REDIRECT_URL = '/'
