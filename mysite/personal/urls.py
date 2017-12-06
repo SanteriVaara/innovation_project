@@ -21,7 +21,7 @@ from personal import views as personal_views
 urlpatterns = [
 	url(r'^$', personal_views.post_list, name='list'),
 	url(r'^create/$', personal_views.post_create, name='create'),
-	url(r'^(?P<id>\d+)/$', personal_views.post_detail, name='detail'),
-	url(r'^(?P<id>\d+)/edit/$', personal_views.post_update, name="update"),
-	url(r'^(?P<id>\d+)/delete/$', personal_views.post_delete, name="delete"),
+	url(r'^(?P<slug>[\w-]+)/$', personal_views.post_detail, name='detail'),
+	url(r'^(?P<slug>[\w-]+)/edit/$', personal_views.post_update, name="update"),
+	url(r'^(?P<slug>[\w-]+)/delete/$', personal_views.post_delete, name="delete"),
 ]

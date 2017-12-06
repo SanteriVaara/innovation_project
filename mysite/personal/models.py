@@ -24,7 +24,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-    	return reverse("detail", kwargs={"slug": self.slug})
+    	return reverse("personal:detail", kwargs={"slug": self.slug})
 
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title) #slugify the title in url
