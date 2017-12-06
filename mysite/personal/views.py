@@ -42,8 +42,8 @@ def post_list(request):
 
 @login_required
 def post_create(request):
-    #if not request.user.is_authenticated():
-        #raise Http404
+    if not request.user.is_authenticated():
+        raise Http404
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -67,16 +67,11 @@ def post_detail(request, id=None):
 
 @login_required
 def post_update(request, id=None):
-    #if not request.user.is_staff or not request.user.is_superuser:
-        #raise Http404
-    #if instance.user != request.user:
-        #messages.success(request, "You do not have permission to do this.")
-        #raise Http404
-	    #response = HttpResponse("You do not have permission to do this.")
-	    #response.status_code = 403
-	    #return response
-
+    if not request.user.is_authenticated():
+        raise Http404
     instance = get_object_or_404(Post, id=id)
+    if not request.user == instance.user:
+    	raise Http404
     form = PostForm(request.POST or None,  request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -93,15 +88,10 @@ def post_update(request, id=None):
 
 @login_required
 def post_delete(request, id=None):
-    #if not request.user.is_staff or not request.user.is_superuser:
-        #raise Http404
-    #if instance.user != request.user:
-        #messages.success(request, "You do not have permission to do this.")
-        #raise Http404
-        #response = HttpResponse("You do not have permission to do this.")
-        #response.status_code = 403
-        #return response
-
+    if not request.user.is_authenticated():
+        raise Http404
     instance = get_object_or_404(Post, id=id)
+    if not request.user == instance.user:
+    	raise Http404
     instance.delete()
     return redirect("personal:list")
