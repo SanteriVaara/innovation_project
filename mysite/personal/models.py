@@ -24,16 +24,16 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-    	return reverse("personal:detail", kwargs={"id": self.id})
+    	return reverse("personal:detail", kwargs={"slug": self.slug})
 
 def create_slug(instance, new_slug=None):
-    slug = slugify(instance.title)
-    if new_slug is not None:
+    slug = slugify(instance.title) #slugify the title in url
+    if new_slug is not None:       #new slug is not none
         slug = new_slug
-    qs = Post.objects.filter(slug = slug).order_by("-id")
+    qs = Post.objects.filter(slug = slug).order_by("-id") #check if slug title exists
     exists = qs.exists()
     if exists:
-        new_slug = "%s-%s" %(slug, qs.first().id)
+        new_slug = "%s-%s" %(slug, qs.first().id) #if exists, then brand new instance again
         return create_slug(instance, new_slug = new_slug)
     return slug
 
