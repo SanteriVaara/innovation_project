@@ -70,7 +70,7 @@ def post_update(request, id=None):
     if not request.user.is_authenticated():
         raise Http404
     instance = get_object_or_404(Post, id=id)
-    if not request.user == instance.user:
+    if not request.user == instance.user or not request.user.is_superuser:
     	raise Http404
     form = PostForm(request.POST or None,  request.FILES or None, instance=instance)
     if form.is_valid():
@@ -91,7 +91,7 @@ def post_delete(request, id=None):
     if not request.user.is_authenticated():
         raise Http404
     instance = get_object_or_404(Post, id=id)
-    if not request.user == instance.user:
+    if not request.user == instance.user or not request.user.is_superuser:
     	raise Http404
     instance.delete()
     return redirect("personal:list")
