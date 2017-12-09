@@ -13,7 +13,7 @@ class Post(models.Model):
     content = models.TextField()
     firstname = models.CharField(max_length = 50)
     lastname = models.CharField(max_length =50)
-    file = models.FileField(null=True, blank=True)
+    file = models.FileField(upload_to='videos/', null=True, blank=True)
     date = models.DateTimeField(auto_now=False,auto_now_add=True)
     updated = models.DateTimeField(auto_now=True,auto_now_add=False)
 
